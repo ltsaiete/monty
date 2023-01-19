@@ -42,7 +42,10 @@ typedef struct instruction_s
  * Description: given a text, it trims the spaces and returns the operand
  * and the operation
  */
-
+extern stack_t *top;
 void trimSpaces(char *line);
 char *getFirstWord(char *line);
+void handleOpcode(char *line);
+void initStack();
+void push(int n);
 #endif

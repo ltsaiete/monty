@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *textfile;
-	char line[MAX_LINE_LENGTH], *filename, *op;
+	char line[MAX_LINE_LENGTH], *filename;
 
 	if (argc < 2)
 	{
@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 	}
 
 	filename = argv[1];
+	initStack();
 
 	textfile = fopen(filename, "r");
 
@@ -32,13 +33,10 @@ int main(int argc, char *argv[])
 	while (fgets(line, MAX_LINE_LENGTH, textfile))
 	{
 		trimSpaces(line);
-		op = getFirstWord(line);
-		/**
-		 * Build switch-case
-		 * build functions to handle the instructions
-		 * handle the intructions inside switch case using the functions and
-		 * struct instruction_t
-		 */
+		if (strlen(line) > 1)
+		{
+			handleOpcode(line);
+		}
 	}
 
 	fclose(textfile);
