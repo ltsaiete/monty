@@ -1,21 +1,4 @@
 #include "main.h"
-#include <string.h>
-
-opcode_t *getOpcode(char *line)
-{
-	opcode_t *opcode = NULL;
-	unsigned int i, len = strlen(line);
-
-	for (i = 0; i < len; i++)
-	{
-		if (line[i] != ' ')
-		{
-			opcode->operation += line[i];
-		}
-	}
-
-	return opcode;
-}
 
 /**
  * main.c - Entry point
@@ -28,8 +11,7 @@ opcode_t *getOpcode(char *line)
 int main(int argc, char *argv[])
 {
 	FILE *textfile;
-	char line[MAX_LINE_LENGTH], *filename;
-	opcode_t *opcode;
+	char line[MAX_LINE_LENGTH], *filename, *op;
 
 	if (argc < 2)
 	{
@@ -49,8 +31,14 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LINE_LENGTH, textfile))
 	{
-		opcode = getOpcode(line);
-		opcode->operation = "push";
+		trimSpaces(line);
+		op = getFirstWord(line);
+		/**
+		 * Build switch-case
+		 * build functions to handle the instructions
+		 * handle the intructions inside switch case using the functions and
+		 * struct instruction_t
+		 */
 	}
 
 	fclose(textfile);
