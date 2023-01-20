@@ -1,8 +1,9 @@
 #ifndef _main_h
 #define _main_h
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #define MAX_LINE_LENGTH 120
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,10 +43,12 @@ typedef struct instruction_s
  * Description: given a text, it trims the spaces and returns the operand
  * and the operation
  */
-extern stack_t *top;
+extern char line[];
 void trimSpaces(char *line);
 char *getFirstWord(char *line);
-void handleOpcode(char *line);
-void initStack();
-void push(int n);
+char *getArgument(char *currentLine);
+void handleOpcode(stack_t **top, unsigned int line_number);
+void initVars();
+void push(stack_t **stack, unsigned int line_number);
+int isNumber(char *n);
 #endif

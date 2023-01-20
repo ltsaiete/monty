@@ -11,7 +11,9 @@
 int main(int argc, char *argv[])
 {
 	FILE *textfile;
-	char line[MAX_LINE_LENGTH], *filename;
+	char *filename;
+	stack_t *top = NULL;
+	unsigned int lineNumber = 1;
 
 	if (argc < 2)
 	{
@@ -20,7 +22,6 @@ int main(int argc, char *argv[])
 	}
 
 	filename = argv[1];
-	initStack();
 
 	textfile = fopen(filename, "r");
 
@@ -35,8 +36,9 @@ int main(int argc, char *argv[])
 		trimSpaces(line);
 		if (strlen(line) > 1)
 		{
-			handleOpcode(line);
+			handleOpcode(&top, lineNumber);
 		}
+		lineNumber++;
 	}
 
 	fclose(textfile);

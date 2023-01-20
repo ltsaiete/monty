@@ -2,29 +2,24 @@
 
 /**
  * handleOpcode - Handle opcode of a single line
- * @line: The line
- * @arg2: description of the argument
+ * @top: Top of the stack
  *
  * Return: void
  */
 
-void handleOpcode(char *line)
+void handleOpcode(stack_t **top, unsigned int line_number)
 {
-	char *op;
+	instruction_t *instruction;
 
-	op = getFirstWord(line);
-	/**
-	 * Build switch-case
-	 * build functions to handle the instructions
-	 * handle the intructions inside switch case using the functions and
-	 * struct instruction_t
-	 */
+	instruction = malloc(sizeof(instruction_t));
 
-	if (strcmp(op, "push") == 0)
+	instruction->opcode = getFirstWord(line);
+
+	if (strcmp(instruction->opcode, "push") == 0)
 	{
-		
+		instruction->f = push;
 	}
-	else if (strcmp(op, "pall") == 0)
+	else if (strcmp(instruction->opcode, "pall") == 0)
 	{
 		printf("op pall\n");
 	}
@@ -32,4 +27,5 @@ void handleOpcode(char *line)
 	{
 		printf("no op\n");
 	}
+	instruction->f(top, line_number);
 }
