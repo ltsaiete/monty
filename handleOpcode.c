@@ -11,10 +11,11 @@
 void handleOpcode(stack_t **top, unsigned int line_number)
 {
 	int i = 0;
-	instruction_t allInstructions[4] = {
+	instruction_t allInstructions[5] = {
 			{"push", push},
 			{"pall", pall},
 			{"pint", pint},
+			{"pop", pop},
 			{NULL, NULL}};
 	instruction_t *currentInstruction;
 
