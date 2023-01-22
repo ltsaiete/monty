@@ -1,4 +1,4 @@
-#include "main.h"
+#include "mottyy.h"
 /**
  * getFirstWord - Get the first word of a line
  * @currentLine: The line
