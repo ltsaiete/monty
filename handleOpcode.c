@@ -30,14 +30,22 @@ void handleOpcode(stack_t **top, unsigned int line_number)
 
 	currentInstruction->opcode = getFirstWord(line);
 
-	while (allInstructions[i].opcode != NULL)
+	if (currentInstruction->opcode[0] == '#')
 	{
-		if (strcmp(currentInstruction->opcode, allInstructions[i].opcode) == 0)
+		currentInstruction->f = nop;
+	}
+	else
+	{
+
+		while (allInstructions[i].opcode != NULL)
 		{
-			currentInstruction->f = allInstructions[i].f;
-			break;
+			if (strcmp(currentInstruction->opcode, allInstructions[i].opcode) == 0)
+			{
+				currentInstruction->f = allInstructions[i].f;
+				break;
+			}
+			i++;
 		}
-		i++;
 	}
 
 	if (allInstructions[i].opcode == NULL)
