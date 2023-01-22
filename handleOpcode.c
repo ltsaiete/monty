@@ -19,10 +19,10 @@ void handleOpcode(stack_t **top, unsigned int line_number)
 			{"swap", swap},
 			{"add", add},
 			{"nop", nop},
-			{"sub", sub},
-			{"div", div},
-			{"mul", mul},
-			{"mod", mod},
+			{"sub", _sub},
+			{"div", _div},
+			{"mul", _mul},
+			{"mod", _mod},
 			{NULL, NULL}};
 	instruction_t *currentInstruction;
 
