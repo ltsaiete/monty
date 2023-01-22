@@ -11,7 +11,10 @@
 void handleOpcode(stack_t **top, unsigned int line_number)
 {
 	int i = 0;
-	instruction_t allInstructions[3] = {{"push", push}, {"pall", pall}, {NULL, NULL}};
+	instruction_t allInstructions[3] = {
+			{"push", push},
+			{"pall", pall},
+			{NULL, NULL}};
 	instruction_t *currentInstruction;
 
 	currentInstruction = malloc(sizeof(instruction_t));
