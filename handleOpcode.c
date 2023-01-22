@@ -3,6 +3,7 @@
 /**
  * handleOpcode - Handle opcode of a single line
  * @top: Top of the stack
+ * @line_number: Current line number
  *
  * Return: void
  */

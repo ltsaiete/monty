@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * push.c - push a number onto the stack
- * @n: the number to be pushed
+ * push - push a number onto the stack
+ * @stack: pointer to the top node of the stack
+ * @line_number: current line number
  *
  * Return: void
  */
@@ -10,8 +11,8 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg;
-
 	stack_t *new;
+
 	arg = getArgument(line);
 
 	if (strlen(arg) == 0 || isNumber(arg) == 0)
@@ -32,6 +33,13 @@ void push(stack_t **stack, unsigned int line_number)
 
 	*stack = new;
 }
+
+/**
+ * isNumber - Verifies if string is a number
+ * @n: the string
+ *
+ * Return: 1 if true, 0 otherwise
+ */
 
 int isNumber(char *n)
 {
