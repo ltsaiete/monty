@@ -10,21 +10,28 @@
 
 void handleOpcode(stack_t **top, unsigned int line_number)
 {
-	instruction_t *instruction;
+	int i = 0;
+	instruction_t allInstructions[2] = {{"push", push}, {NULL, NULL}};
+	instruction_t *currentInstruction;
 
-	instruction = malloc(sizeof(instruction_t));
+	currentInstruction = malloc(sizeof(instruction_t));
 
-	instruction->opcode = getFirstWord(line);
+	currentInstruction->opcode = getFirstWord(line);
 
-	if (strcmp(instruction->opcode, "push") == 0)
+	while (allInstructions[i].opcode != NULL)
 	{
-		instruction->f = push;
+		if (strcmp(currentInstruction->opcode, allInstructions[i].opcode) == 0)
+		{
+			currentInstruction->f = allInstructions[i].f;
+			break;
+		}
+		i++;
 	}
-	else if (strcmp(instruction->opcode, "pall") == 0)
+
+	if (allInstructions[i].opcode == NULL)
 	{
+		printf("L%u: unknown instruction <opcode>\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	else
-	{
-	}
-	instruction->f(top, line_number);
+	currentInstruction->f(top, line_number);
 }
