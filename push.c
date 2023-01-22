@@ -26,13 +26,16 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = malloc(sizeof(stack_t));
 		(*stack)->n = atoi(arg);
 	}
+	else
+	{
 
-	new = malloc(sizeof(stack_t));
+		new = malloc(sizeof(stack_t));
 
-	new->n = atoi(arg);
-	new->next = *stack;
+		new->n = atoi(arg);
+		new->next = *stack;
 
-	*stack = new;
+		*stack = new;
+	}
 }
 
 /**
