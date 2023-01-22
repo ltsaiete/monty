@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(textfile);
+	freeStack(&top);
 
 	exit(EXIT_SUCCESS);
 }

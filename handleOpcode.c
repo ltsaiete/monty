@@ -37,4 +37,6 @@ void handleOpcode(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	currentInstruction->f(top, line_number);
+	free(currentInstruction->opcode);
+	free(currentInstruction);
 }
