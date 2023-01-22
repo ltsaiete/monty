@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * trimSpaces - Trim all unnecessary spaces in a line
  * @line: The line
