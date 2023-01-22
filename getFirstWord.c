@@ -13,7 +13,7 @@ char *getFirstWord(char *currentLine)
 	for (i = 0; i < strlen(currentLine); i++)
 	{
 		word[i] = currentLine[i];
-		if (currentLine[i] == ' ' || currentLine[i] == '\0' || currentLine[i] == '\n')
+		if (currentLine[i] == ' ' || currentLine[i] == '\n')
 		{
 			break;
 		}

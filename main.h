@@ -35,20 +35,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * struct opcode_s - opcode
- * @operation: the operation
- * @operand: the operand
- *
- * Description: given a text, it trims the spaces and returns the operand
- * and the operation
- */
 extern char line[];
+
 void trimSpaces(char *line);
 char *getFirstWord(char *line);
 char *getArgument(char *currentLine);
 void handleOpcode(stack_t **top, unsigned int line_number);
-void initVars();
 void push(stack_t **stack, unsigned int line_number);
 int isNumber(char *n);
 #endif

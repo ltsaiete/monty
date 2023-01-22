@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main.c - Entry point
+ * main - Entry point
  * @argc: count of arguments
  * @argv: Array of arguments
  *
