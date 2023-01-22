@@ -11,32 +11,20 @@
 void handleOpcode(stack_t **top, unsigned int line_number)
 {
 	int i = 0;
-	instruction_t allInstructions[12] = {
-			{"push", push},
-			{"pall", pall},
-			{"pint", pint},
-			{"pop", pop},
-			{"swap", swap},
-			{"add", add},
-			{"nop", nop},
-			{"sub", _sub},
-			{"div", _div},
-			{"mul", _mul},
-			{"mod", _mod},
-			{NULL, NULL}};
-	instruction_t *currentInstruction;
+	instruction_t allInstructions[14] = {{"push", push}, {"pall", pall},
+			{"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
+			{"sub", _sub}, {"div", _div}, {"mul", _mul}, {"mod", _mod},
+			{"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}}, *currentInstruction;
 
 	currentInstruction = malloc(sizeof(instruction_t));
 
 	currentInstruction->opcode = getFirstWord(line);
-
 	if (currentInstruction->opcode[0] == '#')
 	{
 		currentInstruction->f = nop;
 	}
 	else
 	{
-
 		while (allInstructions[i].opcode != NULL)
 		{
 			if (strcmp(currentInstruction->opcode, allInstructions[i].opcode) == 0)
@@ -47,7 +35,6 @@ void handleOpcode(stack_t **top, unsigned int line_number)
 			i++;
 		}
 	}
-
 	if (allInstructions[i].opcode == NULL)
 	{
 		printf("L%u: unknown instruction <opcode>\n", line_number);
