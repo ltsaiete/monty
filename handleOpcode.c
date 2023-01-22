@@ -22,11 +22,9 @@ void handleOpcode(stack_t **top, unsigned int line_number)
 	}
 	else if (strcmp(instruction->opcode, "pall") == 0)
 	{
-		printf("op pall\n");
 	}
 	else
 	{
-		printf("no op\n");
 	}
 	instruction->f(top, line_number);
 }
