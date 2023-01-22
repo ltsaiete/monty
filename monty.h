@@ -5,6 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 #define MAX_LINE_LENGTH 120
+#define UNUSED(x) (void)(x)
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
